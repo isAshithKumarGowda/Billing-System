@@ -301,7 +301,7 @@ void shopping::receipt(){
             cin>>arrc[c];
             cout<<"\n\nEnter the product quantity: ";
             cin>>arrq[c];
-            for(int i=0;i<=c;i++){
+            for(int i=0;i<c;i++){
             if(arrc[c]==arrc[i]){
                     cout<<"\n\n Duplicate product code.Please try again!";
                     goto m;
@@ -314,16 +314,16 @@ void shopping::receipt(){
 
         cout<<"\n\n\t\t\t\t_______________________RECEPT___________________________\n";
         cout<<"\nProduct No\t Product Name\t Product quantity\t Price\t Amount\t Amount after Discount\n";
-
-        for(int i=0;i<=c;i++){
-            data.open("database.txt",ios::in);
+        data.open("database.txt",ios::in);
+        int proDis;
+        for(int i=0;i<c;i++){
             data>>pcode>>pname>>price>>dis;
             while(!data.eof()){
                 if(pcode==arrc[i]){
                     amount=price*arrq[i];
-                    dis=amount-(amount*dis/100);
-                    total=total+dis;
-                    cout<<"\n"<<pcode<<"\t\t"<<pname<<"\t\t"<<arrq[i]<<"\t\t"<<price<<"\t\t"<<amount<<"\t\t"<<dis;
+                    proDis=amount-(amount*dis/100);
+                    total=total+proDis;
+                    cout<<"\n"<<pcode<<"\t\t"<<pname<<"\t\t"<<arrq[i]<<"\t\t"<<price<<"\t\t"<<amount<<"\t\t"<<proDis;
                 }
                 data>>pcode>>pname>>price>>dis;
             }
