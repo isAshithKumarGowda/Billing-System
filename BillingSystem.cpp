@@ -312,7 +312,6 @@ void shopping::receipt(){
         for(int i=0;i<c;i++){
         data.open("database.txt",ios::in);
         int proDis;
-        // for(int i=0;i<c;i++){
             data>>pcode>>pname>>price>>dis;
             while(!data.eof()){
                 if(pcode==arrc[i]){
@@ -323,7 +322,6 @@ void shopping::receipt(){
                 }
                 data>>pcode>>pname>>price>>dis;
             }
-        // }
         data.close();
     }
     cout<<"\n\n\t\t________________________________________________________________________________________________";
